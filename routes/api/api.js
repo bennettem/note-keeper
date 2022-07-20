@@ -11,12 +11,12 @@ router.get("/notes", (req, res) => {
 });
 
 router.post("/notes", (req, res) => {
-    let createNote = {
+    let newNote = {
         title: req.body.title,
         text: req.body.text,
         id: JSON.stringify(notesArray.length)
     };
-    notesArray.push(createNote)
+    notesArray.push(newNote)
     content = JSON.stringify(notesArray);
 
     fs.writeFile(dbPath, content, function (err) {
