@@ -2,11 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const router = require("express").Router();
 const dbPath = path.join(__dirname, "../../db/db.json")
+const data = JSON.parse(fs.readFileSync("./db/db.json"));
 
 var notesArray = [];
 
 router.get("/notes", (req, res) => {
-    res.sendFile(dbPath);
+    res.sendFile(dbPath, data);
     console.log(res);
 });
 
