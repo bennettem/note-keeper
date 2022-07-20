@@ -28,14 +28,6 @@ router.post("/notes", (req, res) => {
 
 // delete note 
 
-router.delete("/notes"), (req, res) => {
-    content = JSON.stringify(notesArray);
 
-    fs.writeFile(dbPath, content, function (err) {
-        if (err) throw err;
-    });
-
-    res.json(dbPath);
-}
 
  module.exports = router;
