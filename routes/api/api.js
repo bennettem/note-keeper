@@ -2,16 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const router = require("express").Router();
 const dbPath = path.join(__dirname, "../../db/db.json")
-const data = require("../../db/db.json")
 const content = JSON.stringify(notesArray);
 
 
 var notesArray = [];
 
 router.get("/notes", (req, res) => {
-    // res.sendFile(dbPath);
-    res.json(data);
-    // console.log(res);
+    res.sendFile(dbPath);
+    console.log(res);
 });
 
 router.post("/notes", (req, res) => {
@@ -29,7 +27,7 @@ router.post("/notes", (req, res) => {
         console.log('Saved!');
     });
 
-    res.json(dbFilePath);
+    res.json(dbPath);
 
 });
 
