@@ -4,3 +4,9 @@ This application allows users to write and save notes in one spot. Once the user
 
 ## Mock up of Site 
 ![note-taker](https://user-images.githubusercontent.com/98004599/179891772-f2c205c8-fc91-493f-8109-c36240d0b915.PNG)
+
+![note-keeper](https://user-images.githubusercontent.com/98004599/180035382-a3256343-125f-4617-94d6-1aaed4dad193.PNG)
+
+## Deploy
+
+https://wormnotes.herokuapp.com/notes
