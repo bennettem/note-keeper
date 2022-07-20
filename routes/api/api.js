@@ -7,7 +7,6 @@ var notesArray = [];
 
 router.get("/notes", (req, res) => {
     res.sendFile(dbPath);
-    console.log(res);
 });
 
 router.post("/notes", (req, res) => {
@@ -29,6 +28,7 @@ router.post("/notes", (req, res) => {
     res.json(dbPath);
 
 });
+
 
 // delete note 
 

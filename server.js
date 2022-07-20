@@ -8,11 +8,12 @@ const html = require("./routes/html/html");
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.json());
+app.use(express.static("public"));
+
 app.use("/api", api);
 app.use("/", html);
 
-app.use(express.json());
-app.use(express.static("public"));
 
 
 app.listen(PORT, () => {
