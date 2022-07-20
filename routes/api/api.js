@@ -7,7 +7,7 @@ var notesArray = [];
 
 router.get("/notes", (req, res) => {
     res.sendFile(dbPath);
-    console.log(res);
+    // console.log(res);
 });
 
 router.post("/notes", (req, res) => {
@@ -19,11 +19,23 @@ router.post("/notes", (req, res) => {
     notesArray.push(note)
     content = JSON.stringify(notesArray);
 
-    writeFile(dbPath, content, function (err) {
+    fs.writeFile(dbPath, content, function (err) {
         if (err) throw err;
     });
 
     res.json(dbPath);
 });
+
+// delete note 
+
+router.delete("/notes"), (req, res) => {
+    content = JSON.stringify(notesArray);
+
+    fs.writeFile(dbPath, content, function (err) {
+        if (err) throw err;
+    });
+
+    res.json(dbPath);
+}
 
  module.exports = router;
