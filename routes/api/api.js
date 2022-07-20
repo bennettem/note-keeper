@@ -2,13 +2,16 @@ const fs = require('fs');
 const path = require('path');
 const router = require("express").Router();
 const dbPath = path.join(__dirname, "../../db/db.json")
-const data = JSON.parse(fs.readFileSync("./db/db.json"));
+const data = require("../../db/db.json")
+const content = JSON.stringify(notesArray);
+
 
 var notesArray = [];
 
 router.get("/notes", (req, res) => {
-    res.sendFile(dbPath, data);
-    console.log(res);
+    // res.sendFile(dbPath);
+    res.json(data);
+    // console.log(res);
 });
 
 router.post("/notes", (req, res) => {
@@ -20,7 +23,6 @@ router.post("/notes", (req, res) => {
     };
 
     notesArray.push(newNote);
-    content = JSON.stringify(notesArray);
 
     fs.writeFile(dbPath, content, function (err) {
         if (err) throw err;
@@ -39,7 +41,6 @@ router.delete("/notes/:id", (req,res) => {
 
     notesArray.splice(noteIndex, 1);
 
-    content = JSON.stringify(notesArray);
 
     fs.writeFile(dbPath, content, function (err) {
         if (err) throw err;
